@@ -18,12 +18,12 @@ class InsertionSortTest {
         System.out.println("Initial :" + Arrays.toString(unsortedArray));
         Assert.assertEquals(Arrays.toString(expectedArray), Arrays.toString(sortedArray));
     }
-//    @Test
-//    void sortDescending() {
-//        int[] unsortedArray = new int[] {3, 5, 1, 4, 2};
-//        int[] sortedArray = InsertionSort.sort(unsortedArray, DESCENDING);
-//        int[] expectedArray = new int[] {5, 4, 3, 2, 1};
-//        System.out.println("Initial :" + Arrays.toString(unsortedArray));
-//        Assert.assertEquals(Arrays.toString(expectedArray), Arrays.toString(sortedArray));
-//    }
+    @Test
+    void sortDescending() {
+        int[] unsortedArray = new int[] {3, 5, 1, 4, 2};
+        int[] sortedArray = InsertionSort.sort(unsortedArray, DESCENDING);
+        int[] expectedArray = new int[] {5, 4, 3, 2, 1};
+        System.out.println("Initial :" + Arrays.toString(unsortedArray));
+        Assert.assertEquals(Arrays.toString(expectedArray), Arrays.toString(sortedArray));
+    }
 }
