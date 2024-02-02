@@ -9,13 +9,10 @@ public class InsertionSort {
             targetIndex = i;
             for (int j = i - 1; j >= 0 ; j--) {
                 if (array[targetIndex] < array[j]) {
-                    switch (sortingOrder) {
-                        case ASCENDING:
-                            buffer = array[j];
-                            array[j] = array[targetIndex];
-                            array[targetIndex] = buffer;
-                            targetIndex = j;
-                    }
+                    buffer = array[j];
+                    array[j] = array[targetIndex];
+                    array[targetIndex] = buffer;
+                    targetIndex = j;
                 } else break;
             }
         }
