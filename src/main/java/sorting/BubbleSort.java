@@ -2,6 +2,7 @@ package sorting;
 
 public class BubbleSort {
     public static void sort(SortingOrder sortingOrder, int[] array) {
+        System.out.println("test1");
         boolean elementReplaced = false;
         int buffer;
             switch (sortingOrder) {
@@ -29,5 +30,8 @@ public class BubbleSort {
                     break;
             }
             if (elementReplaced == true) sort(sortingOrder, array);
+    }
+    public static void sort(SortingOrder sortingOrder, Object[] array) {
+        System.out.println("test");
     }
 }

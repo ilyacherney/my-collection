@@ -40,7 +40,8 @@ public class MyArrayList<T> {
     }
 
     public void sort() {
-        if (type instanceof int[]) {
+        System.out.println("test0");
+        if (type instanceof Integer[]) {
             BubbleSort.sort(SortingOrder.ASCENDING, array);
         }
     }
