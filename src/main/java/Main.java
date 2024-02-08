@@ -47,6 +47,11 @@ public class Main {
         arrayList.sort(Comparator.naturalOrder());
         System.out.println(arrayList);
 
+        Integer a = 1;
+        Integer b = 2;
+        int result = a.compareTo(b);
+        System.out.println(result);
+
 //
 //        MyArrayList<Integer> myArrayList1 = new MyArrayList<>();
 //        myArrayList1.add(3);

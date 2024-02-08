@@ -1,4 +1,5 @@
 import sorting.BubbleSort;
+import sorting.InsertionSort;
 import sorting.SortingOrder;
 
 import java.util.Arrays;
@@ -40,10 +41,6 @@ public class MyArrayList<T> {
     }
 
     public void sort() {
-        System.out.println("test0");
-        if (type instanceof Integer[]) {
-            BubbleSort.sort(SortingOrder.ASCENDING, array);
-        }
     }
 
 
