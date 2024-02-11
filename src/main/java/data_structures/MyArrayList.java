@@ -1,22 +1,24 @@
+package data_structures;
+
 import sorting.BubbleSort;
 import sorting.InsertionSort;
 import sorting.SortingOrder;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MyArrayList<T> {
     private T type;
     private T[] array;
-
-    public int getSize() {
-        return size;
-    }
-
     private int size = 0;
     private final int DEFAULT_CAPACITY = 2;
 
     public MyArrayList() {
         array = (T[])new Object[DEFAULT_CAPACITY];
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void add(T obj) {
@@ -40,13 +42,13 @@ public class MyArrayList<T> {
         array = newArray;
     }
 
-    public void sort() {
+    public void sort(SortingOrder sortingOrder, Comparator<? super T> comparator) {
+        BubbleSort<T> bubbleSort = new BubbleSort<>();
+        array = bubbleSort.sort(array, sortingOrder, comparator);
     }
-
 
     @Override
     public String toString() {
         return Arrays.toString(array);
     }
-
 }

@@ -2,9 +2,9 @@ package sorting;
 
 import java.util.Comparator;
 
-public class BubbleSort {
+public class BubbleSort<T> {
     static boolean elementSwitched = false;
-    public static int[] sort(int[] array, SortingOrder sortingOrder, Comparator comparator) {
+    public T[] sort(T[] array, SortingOrder sortingOrder, Comparator comparator) {
         elementSwitched = false;
         for (int i = 0; i < array.length; i++) {
             if (i == array.length - 1) break;
@@ -21,8 +21,8 @@ public class BubbleSort {
         return array;
     }
 
-    private static void switchElementRight(int[] array, int i) {
-        int buffer = array[i + 1];
+    private void switchElementRight(T[] array, int i) {
+        T buffer = array[i + 1];
         array[i + 1] = array[i];
         array[i] = buffer;
         elementSwitched = true;

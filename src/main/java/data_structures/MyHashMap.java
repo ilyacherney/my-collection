@@ -1,3 +1,5 @@
+package data_structures;
+
 public class MyHashMap<K,V> {
     private K key;
     private V value;

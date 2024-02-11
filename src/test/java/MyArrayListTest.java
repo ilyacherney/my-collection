@@ -1,26 +1,18 @@
+import data_structures.MyArrayList;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
+import sorting.IntegerComparator;
+import sorting.SortingOrder;
 
 public class MyArrayListTest {
-//    private static MyArrayList myArrayList;
-//
-//    @BeforeClass
-//    public static void instantiateArrayList() {
-//        myArrayList = new MyArrayList();
-//    }
-
     @Test
     void newArrayListShouldHaveZeroSize() {
         MyArrayList myArrayList = new MyArrayList();
         Assert.assertEquals(0, myArrayList.getSize());
     }
 
-    @Test
-    void ArrayListShouldAddSameTypeObjects() {
+    @Test //доделать
+    void ArrayListShouldAddOnlySameTypeObjects() {
         MyArrayList<String> myArrayList = new MyArrayList();
 
         String obj1= new String("Test");
@@ -33,19 +25,38 @@ public class MyArrayListTest {
     }
 
     @Test
-    void ArrayListShouldSortInts() {
+    void ArrayListShouldAscendingSortInts() {
         MyArrayList<Integer> expectedArray = new MyArrayList();
         expectedArray.add(1);
         expectedArray.add(3);
         expectedArray.add(6);
+        expectedArray.add(8);
 
         MyArrayList<Integer> myArrayList = new MyArrayList();
         myArrayList.add(3);
+        myArrayList.add(8);
         myArrayList.add(6);
         myArrayList.add(1);
 
-        myArrayList.sort();
+        myArrayList.sort(SortingOrder.ASCENDING ,new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), myArrayList.toString());
+    }
 
-        Assert.assertEquals(expectedArray, myArrayList);
+    @Test
+    void ArrayListShouldDescendingSortInts() {
+        MyArrayList<Integer> expectedArray = new MyArrayList();
+        expectedArray.add(8);
+        expectedArray.add(6);
+        expectedArray.add(3);
+        expectedArray.add(1);
+
+        MyArrayList<Integer> myArrayList = new MyArrayList();
+        myArrayList.add(3);
+        myArrayList.add(8);
+        myArrayList.add(6);
+        myArrayList.add(1);
+
+        myArrayList.sort(SortingOrder.DESCENDING ,new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), myArrayList.toString());
     }
 }
