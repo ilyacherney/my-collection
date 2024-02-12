@@ -43,8 +43,7 @@ public class MyArrayList<T> {
     }
 
     public void sort(SortingOrder sortingOrder, Comparator<? super T> comparator) {
-        BubbleSort<T> bubbleSort = new BubbleSort<>();
-        array = bubbleSort.sort(array, sortingOrder, comparator);
+        array = BubbleSort.sort(array, sortingOrder, comparator);
     }
 
     @Override
