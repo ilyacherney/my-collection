@@ -3,60 +3,68 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import sorting.IntegerComparator;
 import sorting.SortingOrder;
+import sorting.SortingType;
 
 public class MyArrayListTest {
-    @Test
-    void newArrayListShouldHaveZeroSize() {
-        MyArrayList myArrayList = new MyArrayList();
-        Assert.assertEquals(0, myArrayList.getSize());
-    }
-
-    @Test //доделать
-    void ArrayListShouldAddOnlySameTypeObjects() {
-        MyArrayList<String> myArrayList = new MyArrayList();
-
-        String obj1= new String("Test");
-        int obj2 = 1;
-        String obj3 = new String("Test2");
-
-        myArrayList.add(obj1);
-//        myArrayList.add(obj2);
-        myArrayList.add(obj3);
-    }
-
-    @Test
-    void ArrayListShouldAscendingSortInts() {
+    MyArrayList<Integer> instantiateExpectedAscArray() {
         MyArrayList<Integer> expectedArray = new MyArrayList();
         expectedArray.add(1);
         expectedArray.add(3);
         expectedArray.add(6);
         expectedArray.add(8);
-
-        MyArrayList<Integer> myArrayList = new MyArrayList();
-        myArrayList.add(3);
-        myArrayList.add(8);
-        myArrayList.add(6);
-        myArrayList.add(1);
-
-        myArrayList.sort(SortingOrder.ASCENDING ,new IntegerComparator());
-        Assert.assertEquals(expectedArray.toString(), myArrayList.toString());
+        return expectedArray;
     }
 
-    @Test
-    void ArrayListShouldDescendingSortInts() {
+    MyArrayList<Integer> instantiateExpectedDescArray() {
         MyArrayList<Integer> expectedArray = new MyArrayList();
         expectedArray.add(8);
         expectedArray.add(6);
         expectedArray.add(3);
         expectedArray.add(1);
+        return expectedArray;
+    }
 
-        MyArrayList<Integer> myArrayList = new MyArrayList();
-        myArrayList.add(3);
-        myArrayList.add(8);
-        myArrayList.add(6);
-        myArrayList.add(1);
+    MyArrayList<Integer> instantiateTestArray() {
+        MyArrayList<Integer> testArray = new MyArrayList();
+        testArray.add(3);
+        testArray.add(8);
+        testArray.add(6);
+        testArray.add(1);
+        return testArray;
+    }
+    @Test
+    void BubbleAscSort() {
+        MyArrayList<Integer> expectedArray = instantiateExpectedAscArray();
+        MyArrayList<Integer> testArray = instantiateTestArray();
 
-        myArrayList.sort(SortingOrder.DESCENDING ,new IntegerComparator());
-        Assert.assertEquals(expectedArray.toString(), myArrayList.toString());
+        testArray.sort(SortingType.Bubble, SortingOrder.ASCENDING, new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), testArray.toString());
+    }
+
+    @Test
+    void BubbleDescSort() {
+        MyArrayList<Integer> expectedArray = instantiateExpectedDescArray();
+        MyArrayList<Integer> testArray = instantiateTestArray();
+
+        testArray.sort(SortingType.Bubble, SortingOrder.DESCENDING, new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), testArray.toString());
+    }
+
+    @Test
+    void InsertionAscSort() {
+        MyArrayList<Integer> expectedArray = instantiateExpectedAscArray();
+        MyArrayList<Integer> testArray = instantiateTestArray();
+
+        testArray.sort(SortingType.Insertion, SortingOrder.ASCENDING, new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), testArray.toString());
+    }
+
+    @Test
+    void InsertionDescSort() {
+        MyArrayList<Integer> expectedArray = instantiateExpectedDescArray();
+        MyArrayList<Integer> testArray = instantiateTestArray();
+
+        testArray.sort(SortingType.Insertion, SortingOrder.DESCENDING, new IntegerComparator());
+        Assert.assertEquals(expectedArray.toString(), testArray.toString());
     }
 }

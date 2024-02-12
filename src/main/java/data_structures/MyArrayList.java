@@ -3,6 +3,7 @@ package data_structures;
 import sorting.BubbleSort;
 import sorting.InsertionSort;
 import sorting.SortingOrder;
+import sorting.SortingType;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -42,8 +43,14 @@ public class MyArrayList<T> {
         array = newArray;
     }
 
-    public void sort(SortingOrder sortingOrder, Comparator<? super T> comparator) {
-        array = BubbleSort.sort(array, sortingOrder, comparator);
+    public void sort(SortingType sortingType, SortingOrder sortingOrder, Comparator<? super T> comparator) {
+        switch (sortingType) {
+            case Bubble:
+                array = BubbleSort.sort(array, sortingOrder, comparator);
+                break;
+            case Insertion:
+                array = InsertionSort.sort(array, sortingOrder, comparator);
+        }
     }
 
     @Override
